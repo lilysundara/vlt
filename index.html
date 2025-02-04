@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: pink;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .gif {
+            width: 250px;
+            height: auto;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        .no {
+            background-color: red;
+            color: white;
+        }
+        #response {
+            font-size: 20px;
+            color: darkred;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        /* Celebration screen */
+        .celebration {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffcccb;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 100;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: gold;
+            opacity: 0.7;
+            animation: fall 3s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Will You Be My Valentine? 💖</h1>
+        <br>
+        <button id="yesBtn" class="btn yes" onclick="sayYes()">Yes 💘</button>
+        <button id="noBtn" class="btn no" onclick="sayNo()">No 💔</button>
+        <p id="response"></p>
+    </div>
+
+    <!-- Celebration screen -->
+    <div id="celebration" class="celebration">
+        <h1>I know you couldn't resist me 😝💖</h1>
+    </div>
+
+    <script>
+        let noMessages = [
+            "Are you sure? 🥺",
+            "Please? 🥹",
+            "Pretty please? 🥰",
+            "Think about it again! 😘",
+            "One last chance... ❤️",
+            "Come on, say yes! 😍",
+            "You can't say no forever! 🤭",
+            "Just say yes already! 🙄",
+            "Why are you making this so hard? 😩",
+            "STOP CLICKING NO! 😡",
+            "I'M GONNA MAKE THE YES BUTTON BIGGER! 🤬",
+        ];
+        let index = 0;
+        let yesSize = 1;
+        let yesButton = document.getElementById("yesBtn");
+        let noButton = document.getElementById("noBtn");
+        let responseText = document.getElementById("response");
+        let gif = document.getElementById("gif");
+
+        function sayYes() {
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById("celebration").style.display = 'flex';
+            createConfetti();
+        }
+
+        function sayNo() {
+            if (index < noMessages.length) {
+                responseText.innerHTML = noMessages[index]; 
+            } else {
+                responseText.innerHTML = "YOU CANNOT ESCAPE! 🤪";
+            }
+            index++;
+            yesSize += 0.3; 
+            if (yesSize < 4) {  // Limit button growth so it doesn't break everything
+                yesButton.style.transform = `scale(${yesSize})`;
+            }
+
+            if (index >= 10) {
+                responseText.innerHTML = "OKAY THAT'S IT, JUST CLICK YES ALREADY! 😤";
+            }
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.getElementById("celebration").appendChild(confetti);
+            }
+        }
+    </script>
+
+</body>
+</html>
