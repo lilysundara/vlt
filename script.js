@@ -4,9 +4,9 @@ let size = 20;
 
 function sayYes() {
     document.body.innerHTML = `
-        <h1>Yay! 💖</h1>
+        <h1>Yippeeeeeee I love you 😘💖</h1>
         <img src="https://media.tenor.com/0T9oSGkWbKoAAAAi/cute-love.gif" alt="Happy GIF" width="250">
-        <p>Can't wait for Valentine's Day with you! 🥰</p>
+        <p>Can't wait for Valentine's Day with you! 🥺🥰</p>
     `;
 }
 
