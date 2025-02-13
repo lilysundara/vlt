@@ -7,7 +7,7 @@
     <style>
         body {
             text-align: center;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Times New Roman', Times, time new roman;
             background-color: pink;
             overflow: hidden;
         }
@@ -28,12 +28,12 @@
             transition: 0.3s;
         }
         .yes {
-            background-color: green;
+            background-color: pink;
             color: white;
             transition: transform 0.3s ease;
         }
         .no {
-            background-color: red;
+            background-color: grey;
             color: white;
         }
         #response {
@@ -63,7 +63,7 @@
             height: 10px;
             background-color: gold;
             opacity: 0.7;
-            animation: fall 3s linear infinite;
+            animation: fall 5s linear infinite;
         }
         @keyframes fall {
             0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
@@ -97,7 +97,7 @@
             "You can't say no forever! 🤭",
             "Just say yes already! 🙄",
             "Why are you making this so hard? 😩",
-            "STOP CLICKING NO! 😡",
+            "Stop clicking no 😞",
             "I'M GONNA MAKE THE YES BUTTON BIGGER! 🤬",
         ];
         let index = 0;
@@ -117,7 +117,7 @@
             if (index < noMessages.length) {
                 responseText.innerHTML = noMessages[index]; 
             } else {
-                responseText.innerHTML = "YOU CANNOT ESCAPE! 🤪";
+                responseText.innerHTML = "YOU CANNOT ESCAPE! 😚";
             }
             index++;
             yesSize += 0.3; 
@@ -126,7 +126,7 @@
             }
 
             if (index >= 10) {
-                responseText.innerHTML = "OKAY THAT'S IT, JUST CLICK YES ALREADY! 😤";
+                responseText.innerHTML = "OKAY THAT'S IT, JUST CLICK YES ALREADY!😡";
             }
         }
 
